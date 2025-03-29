@@ -2,23 +2,23 @@
 # PROJECT TITLE :
 brief description...
 
-# INTRDUCTION:
+## INTRDUCTION:
 a concise overview of the project. Explain its purpose and the problem statement created
 
-# SOLUTION:
+## SOLUTION:
 key innovations and aspects 
 
-# FEATURES:
+## FEATURES:
 
-# TECH STACK: 
+## TECH STACK: 
 FRONT END:
 BACKEND:
 
-# INSTALLATION(if any):
+### INSTALLATION(if any):
 
-# USAGE/ DEMO
+### USAGE/ DEMO
 screenshots, videos etc etc
 
-# CHALLENGES FACED
+### CHALLENGES FACED
 
-# FUTURE SCOPE
+### FUTURE SCOPE
