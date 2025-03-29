@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background: url('photo-1625246333195-78d9c38ad449.jpeg') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            width: 40%;
+        }
+        .logo {
+            width: 80px;
+            margin-bottom: 10px;
+        }
+        h1 {
+            color: #2d572c;
+            margin-bottom: 20px;
+        }
+        .input-box {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .button {
+            width: 100%;
+            padding: 10px;
+            background: green;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+        .button:hover {
+            background: darkgreen;
+        }
+        .link {
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+        .link a {
+            color: blue;
+            text-decoration: none;
+        }
+        .link a:hover {
+            text-decoration: underline;
+        }
+        .lang-select {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: lightgreen;
+            border: none;
+            padding: 5px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <select class="lang-select">
+        <option>EN</option>
+        <option>ES</option>
+        <option>FR</option>
+    </select>
+    <div class="container">
+        <img src="Adobe Express - file.png" alt="Logo" class="logo">
+        <h1>SIGN UP</h1>
+        <input type="text" id="fullName" class="input-box" placeholder="Full Name" required>
+        <input type="email" id="email" class="input-box" placeholder="E-mail ID" required>
+        <input type="text" id="signupUsername" class="input-box" placeholder="Username" required>
+        <input type="password" id="signupPassword" class="input-box" placeholder="Password" required>
+        <button class="button" onclick="validateSignup()">Sign Up</button>
+
+        <p class="link">Have an account? <a href="login.html">Login</a></p>
+    </div>
+
+    <script>
+        function validateSignup() {
+            let fullName = document.getElementById('fullName').value;
+            let email = document.getElementById('email').value;
+            let username = document.getElementById('signupUsername').value;
+            let password = document.getElementById('signupPassword').value;
+
+            if (fullName === "" || email === "" || username === "" || password === "") {
+                alert("Signup unsuccessful! Please fill in all fields.");
+            } else {
+                alert("Signup successful!");
+                window.location.href = "login.html"; // Redirect to login page
+            }
+        }
+
+
+
+    </script>
+</body>
+</html>
