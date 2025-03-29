@@ -3,197 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AgriLens - Home</title>
+    <title>AgriLens</title>
     <style>
-        * {
+        body {
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-
-        body {
-            background: url('image_750x_66d864decc1a8.jpg') no-repeat center center/cover;
-            height: 100vh;
+            background: url('image_750x_66d864decc1a8.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
             display: flex;
             justify-content: center;
             align-items: center;
-            text-align: center;
-            position: relative;
+            height: 100vh;
         }
-        body::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: black;
-            opacity: 0.4;
-            z-index: -1;
-        }
-
         .container {
-            width: 90%;
-            max-width: 1100px;
-            padding: 20px;
-        }
-
-        .header {
-            display: flex;
-            align-items: center;
-            padding: 10px;
-        }
-
-        .header h1 {
-            font-size: 28px;
-            color: #2d572c;
-            margin-left: 10px;
-            font-weight: bold;
-        }
-
-        .content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 20px;
-        }
-
-        .upload-box {
-            background: lightgreen;
-            padding: 20px;
-            border-radius: 10px;
-            width: 40%;
             text-align: center;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-            border: 2px dashed darkgreen;
-            cursor: pointer;
+            padding: 40px;
+            max-width: 800px;
+            border-radius: 15px;
+            background: rgba(0, 0, 0, 0.75);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         }
-
-        .upload-box h3 {
-            font-size: 18px;
-            margin-bottom: 10px;
+        .logo {
+            margin-bottom: 20px;
         }
-
-        .upload-btn {
-            background: green;
-            color: white;
-            padding: 10px 15px;
-            font-size: 16px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            display: block;
-            margin: 10px auto;
+        .logo img {
+            width: 100px; /* Adjust the size as needed */
         }
-
-        .upload-btn:hover {
-            background: darkgreen;
+        h1 {
+            font-size: 2.5em;
+            margin: 0;
+            color: #4CAF50;
         }
-
-        .description {
-            width: 50%;
-            padding: 15px;
-            background: rgba(255, 255, 100, 0.5);
+        h2 {
+            font-size: 1.5em;
+            margin: 15px 0;
+        }
+        .upload-box {
+            border: 2px dashed #4CAF50;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #d4edda;
+            margin-top: 20px;
             border-radius: 10px;
+            display: inline-block;
         }
-
-        .description p {
-            font-size: 16px;
-            font-weight: bold;
-            color: black;
+        .upload-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
         }
-
-        .top-left {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            font-size: 14px;
-            color: lightblue;
+        .upload-button:hover {
+            background-color: #3d8b40;
         }
-
-        #fileInput {
-            display: none;
+        .description {
+            margin-top: 20px;
+            font-size: 1.1em;
+            line-height: 1.6;
         }
-
-        .preview {
-            margin-top: 10px;
+        .footer {
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #bbe1fa;
         }
-
-        .preview img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 5px;
-            margin-top: 10px;
+        @media only screen and (max-width: 600px) {
+            h1 {
+                font-size: 2em;
+            }
+            h2 {
+                font-size: 1.2em;
+            }
+            .upload-button {
+                font-size: 0.9em;
+                padding: 10px 20px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="top-left">Home Page</div>
-        <div class="header">
-            <img src="Adobe Express - file.png" alt="AgriLens Logo" width="50">
-            <h1>AgriLens</h1>
+        <div class="logo">
+            <img src="Adobe Express - file.png" alt="AgriLens Logo"> <!-- Replace with your logo URL -->
         </div>
-
-        <div class="content">
-            <div class="upload-box" id="drop-area">
-                <h3>Drag and drop an image or browse to upload</h3>
-                <input type="file" id="fileInput" accept="image/jpeg, image/jpg, image/png">
-                <button class="upload-btn" onclick="document.getElementById('fileInput').click();">Upload the file</button>
-                <p>Files must be JPEG, JPG, or PNG</p>
-                <div class="preview" id="preview"></div>
-            </div>
-
-            <div class="description">
-                <p>Harness the power of advanced technology to keep your fields thriving. 
-                Gain deep insights, detect issues before they spread, and make informed decisions—all in one place. 
-                Because healthier crops mean a better harvest. You are just one click away. 
-                The future of agriculture starts here.</p>
-            </div>
+        <h1>AgriLens</h1>
+        <h2>Upload your image for instant analysis</h2>
+        <div class="upload-box">
+            <input type="file" id="file-upload" style="display: none;">
+            <label for="file-upload" class="upload-button">Choose File</label>
+            <p>Supports JPEG, JPG, PNG</p>
+        </div>
+        <div class="description">
+            Revolutionize your agriculture practices. With AgriLens, gain insights that help monitor crop health, predict outcomes, and enhance your harvest for a sustainable future. Tap into technology designed to make every field flourish!
+        </div>
+        <div class="footer">
+            © 2025 AgriLens Inc. All rights reserved.
         </div>
     </div>
-
-    <script>
-        const dropArea = document.getElementById('drop-area');
-        const fileInput = document.getElementById('fileInput');
-        const preview = document.getElementById('preview');
-
-        fileInput.addEventListener('change', function () {
-            handleFiles(this.files);
-        });
-
-        dropArea.addEventListener('dragover', (e) => {
-            e.preventDefault();
-            dropArea.style.borderColor = "darkgreen";
-        });
-
-        dropArea.addEventListener('dragleave', () => {
-            dropArea.style.borderColor = "green";
-        });
-
-        dropArea.addEventListener('drop', (e) => {
-            e.preventDefault();
-            dropArea.style.borderColor = "green";
-            let files = e.dataTransfer.files;
-            fileInput.files = files;
-            handleFiles(files);
-        });
-
-        function handleFiles(files) {
-            if (files.length > 0) {
-                const file = files[0];
-                if (file.type.startsWith('image/')) {
-                    const reader = new FileReader();
-                    reader.onload = function (e) {
-                        preview.innerHTML = `<img src="${e.target.result}" alt="Uploaded Image">`;
-                    };
-                    reader.readAsDataURL(file);
-                } else {
-                    alert("Invalid file type. Please upload a JPEG, JPG, or PNG file.");
-                }
-            }
-        }
-    </script>
 </body>
 </html>
