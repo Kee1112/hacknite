@@ -4,10 +4,10 @@
 This GIS-based system predicts plant diseases using spatial data and environmental factors, providing early warnings and insights to farmers for better crop management.
 
 ### INTRDUCTION:
-Plant diseases significantly impact global food security, making early detection crucial for preventing crop losses. This project leverages Geographic Information System (GIS) technology to predict plant diseases by analyzing spatial data, satellite imagery, soil conditions, and environmental factors. By mapping disease-prone areas and identifying geographic trends, the system provides early warnings and actionable insights to farmers. This enhances decision-making, optimizes resource allocation, and supports sustainable agriculture. To maximize accessibility, the platform will be available in multiple local languages, ensuring farmers in remote areas receive accurate disease forecasts and timely interventions, ultimately improving crop health and yields.
+Plant diseases significantly impact global food security, making early detection and prediction crucial for preventing crop losses. This project leverages Geographic Information System (GIS) technology to predict plant diseases by analyzing thermal and RGB plant images spatial data, soil conditions, and environmental factors. By predicting and detecting which disease the plant may have, the system provides early warnings and actionable insights to farmers. This enhances decision-making, optimizes resource allocation, and supports sustainable agriculture. To maximize accessibility, the platform will be available in multiple local languages, ensuring farmers in remote areas receive accurate disease forecasts and timely interventions, ultimately improving crop health and yields.
 
 ### SOLUTION:
-Empowering farmers with AI-driven plant disease detection, this project enhances agricultural productivity through better decision-making. By combining remote sensing, AI, and GIS, it enables accurate disease forecasting and early identification using geospatial data. Providing real-time insights, the system helps mitigate crop losses, improve food security, and revolutionize precision agriculture with smart, location-based disease monitoring.
+Empowering farmers with AI-driven plant disease detection, this project enhances agricultural productivity through better decision-making. By combining remote sensing and AI it enables accurate disease forecasting and early identification using geo tagged thermal images of plants. Providing real-time insights, the system helps mitigate crop losses, improve food security, and revolutionize precision agriculture with smart, location-based disease monitoring.
 
 ### MODEL ARCHITECTURE: 
 ![Model](model_block.png)
@@ -28,7 +28,7 @@ MODEL:
 - AlexNet (CNN for image classification)
 
 ### USAGE
-- **User Access:** Farmers can upload images of affected crops through a web-based interface.
+- **User Access:** Farmers can upload or capture images of affected crops through a web-based interface.
 - **Processing:** The system analyzes the image using the AlexNet model and cross-references spatial data.
 - **Prediction Output:** It provides a disease diagnosis, severity level, and suggested preventive measures.
 
@@ -46,7 +46,7 @@ Below are screenshots demonstrating the key features of AgriLens and how it assi
 ![Home Page](home-page.png)
 
 ### CHALLENGES FACED
-- **Data Collection & Preprocessing**: Acquiring high-quality labeled plant disease datasets and integrating diverse spatial data sources.
+- **Data Collection & Preprocessing**: Acquiring high-quality labeled plant disease datasets and integrating diverse spatial data sources both thermal and RGB images.
 - **Model Optimization:** Training the CNN model to achieve high accuracy while maintaining efficiency for real-time predictions.
 - **Infrastructure & Connectivity:** Ensuring accessibility in rural areas with limited internet connectivity.
 - **Language & Usability:** Adapting the system to multiple local languages for broader farmer adoption.
