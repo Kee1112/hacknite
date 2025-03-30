@@ -9,7 +9,7 @@ Plant diseases significantly impact global food security, making early detection
 ### SOLUTION:
 Empowering farmers with AI-driven plant disease detection, this project enhances agricultural productivity through better decision-making. By combining remote sensing, AI, and GIS, it enables accurate disease forecasting and early identification using geospatial data. Providing real-time insights, the system helps mitigate crop losses, improve food security, and revolutionize precision agriculture with smart, location-based disease monitoring.
 
-### FEATURES:
+### MODEL ARCHITECTURE: 
 
 ### TECH STACK: 
 FRONT END:
@@ -17,15 +17,42 @@ FRONT END:
 - Javascript
 
 BACKEND: 
+- Python
+- Flask
 
 DATABASES:
 - MySql
 
-### INSTALLATION(if any):
+MODEL: 
+- AlexNet (CNN for image classification)
 
-### USAGE/ DEMO
-screenshots, videos etc etc
+### USAGE
+- **User Access:** Farmers can upload images of affected crops through a web-based interface.
+- **Processing:** The system analyzes the image using the AlexNet model and cross-references spatial data.
+- **Prediction Output:** It provides a disease diagnosis, severity level, and suggested preventive measures.
+
+Below are screenshots demonstrating the key features of AgriLens and how it assists farmers with plant disease prediction:
+#### **Landing Page**
+![Landing Page](landing-page.png)
+
+#### **Login Page**
+![Login Page](assets/login-page.png)
+
+#### **Signup Page**
+![Signup Page](assets/signup-page.png)
+
+#### **Home Page**
+![Home Page](assets/home-page.png)
 
 ### CHALLENGES FACED
+- **Data Collection & Preprocessing**: Acquiring high-quality labeled plant disease datasets and integrating diverse spatial data sources.
+- **Model Optimization:** Training the CNN model to achieve high accuracy while maintaining efficiency for real-time predictions.
+- **Infrastructure & Connectivity:** Ensuring accessibility in rural areas with limited internet connectivity.
+- **Language & Usability:** Adapting the system to multiple local languages for broader farmer adoption.
 
 ### FUTURE SCOPE
+- **Improved Deep Learning Models:** Incorporating more advanced architectures such as Vision Transformers for enhanced accuracy.
+- **IoT Integration:** Connecting sensors in farms to monitor soil moisture, temperature, and humidity in real-time.
+- **Mobile App Development:** Creating a mobile-friendly version for easier farmer accessibility.
+- **Blockchain for Data Security:** Ensuring secure and transparent data storage for disease trends and interventions.
+- **Government & Research Collaborations:** Partnering with agricultural organizations for widespread adoption and refinement of predictive models.
