@@ -43,7 +43,7 @@ Below are screenshots demonstrating the key features of AgriLens and how it assi
 ![Signup Page](signup-page.png)
 
 #### **Home Page**
-![Home Page](home-page.png)
+![Home Page](home-page.jpeg)
 
 ### CHALLENGES FACED
 - **Data Collection & Preprocessing**: Acquiring high-quality labeled plant disease datasets and integrating diverse spatial data sources both thermal and RGB images.
