@@ -7,7 +7,7 @@ This GIS-based system predicts plant diseases using spatial data and environment
 Plant diseases significantly impact global food security, making early detection and prediction crucial for preventing crop losses. This project leverages Geographic Information System (GIS) technology to predict plant diseases by analyzing thermal and RGB plant images spatial data, soil conditions, and environmental factors. By predicting and detecting which disease the plant may have, the system provides early warnings and actionable insights to farmers. This enhances decision-making, optimizes resource allocation, and supports sustainable agriculture. To maximize accessibility, the platform will be available in multiple local languages, ensuring farmers in remote areas receive accurate disease forecasts and timely interventions, ultimately improving crop health and yields.
 
 ### SOLUTION:
-Empowering farmers with AI-driven plant disease detection, this project enhances agricultural productivity through better decision-making. By combining remote sensing and AI it enables accurate disease forecasting and early identification using geo tagged thermal images of plants. Providing real-time insights, the system helps mitigate crop losses, improve food security, and revolutionize precision agriculture with smart, location-based disease monitoring.
+Empowering farmers with AI-driven plant disease detection, this project enhances agricultural productivity through better decision-making. By combining remote sensing and AI it enables accurate disease forecasting and early identification using geo tagged thermal and RGB images of plants. Providing real-time insights, the system helps mitigate crop losses, improve food security, and revolutionize precision agriculture with smart, location-based disease monitoring.
 
 ### MODEL ARCHITECTURE: 
 ![Model](model_block.png)
@@ -25,7 +25,7 @@ DATABASES:
 - MySql
 
 MODEL: 
-- AlexNet (CNN for image classification)
+- AlexNet (thermal images) and MobileNetV3 (for RGB images) 
 
 ### USAGE:
 - **User Access:** Farmers can upload or capture images of affected crops through a web-based interface.
