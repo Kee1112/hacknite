@@ -57,3 +57,4 @@ Below are screenshots demonstrating the key features of AgriLens and how it assi
 - **Mobile App Development:** Creating a mobile-friendly version for easier farmer accessibility.
 - **Blockchain for Data Security:** Ensuring secure and transparent data storage for disease trends and interventions.
 - **Government & Research Collaborations:** Partnering with agricultural organizations for widespread adoption and refinement of predictive models.
+- Deploying the software in multiple local languages and having a UI that is accessible and understandable by  
