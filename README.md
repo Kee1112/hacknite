@@ -16,8 +16,7 @@ FRONT END:
 - HTML+CSS
 - Javascript
 
-BACKEND:
-- 
+BACKEND: 
 
 DATABASES:
 - MySql
