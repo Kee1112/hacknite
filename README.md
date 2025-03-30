@@ -27,7 +27,7 @@ DATABASES:
 MODEL: 
 - AlexNet (CNN for image classification)
 
-### USAGE
+### USAGE:
 - **User Access:** Farmers can upload or capture images of affected crops through a web-based interface.
 - **Processing:** The system analyzes the image using the AlexNet model and cross-references spatial data.
 - **Prediction Output:** It provides a disease diagnosis, severity level, and suggested preventive measures.
