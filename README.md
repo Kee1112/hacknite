@@ -10,6 +10,7 @@ Plant diseases significantly impact global food security, making early detection
 Empowering farmers with AI-driven plant disease detection, this project enhances agricultural productivity through better decision-making. By combining remote sensing, AI, and GIS, it enables accurate disease forecasting and early identification using geospatial data. Providing real-time insights, the system helps mitigate crop losses, improve food security, and revolutionize precision agriculture with smart, location-based disease monitoring.
 
 ### MODEL ARCHITECTURE: 
+![Model](model_block.png)
 
 ### TECH STACK: 
 FRONT END:
