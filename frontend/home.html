@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AgriLens</title>
+    <title>Image Prediction</title>
     <style>
+        /* Body Styling */
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
@@ -17,6 +18,8 @@
             align-items: center;
             height: 100vh;
         }
+
+        /* Container Styling */
         .container {
             text-align: center;
             padding: 40px;
@@ -25,22 +28,24 @@
             background: rgba(0, 0, 0, 0.75);
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         }
+
+        /* Logo Styling */
         .logo {
             margin-bottom: 20px;
         }
         .logo img {
             width: 100px; /* Adjust the size as needed */
         }
-        h1 {
-            font-size: 2.5em;
+
+        /* Heading Styling */
+        h2 {
+            font-size: 2em;
             margin: 0;
             color: #4CAF50;
         }
-        h2 {
-            font-size: 1.5em;
-            margin: 15px 0;
-        }
-        .upload-box {
+
+        /* Upload Box and Camera Box Styling */
+        .upload-box, .camera-box {
             border: 2px dashed #4CAF50;
             padding: 20px;
             background-color: rgba(255, 255, 255, 0.1);
@@ -48,8 +53,11 @@
             margin-top: 20px;
             border-radius: 10px;
             display: inline-block;
+            vertical-align: top;
         }
-        .upload-button {
+
+        /* Button Styling */
+        .upload-btn, .predict-btn, .capture-btn, .logout-btn {
             background-color: #4CAF50;
             color: white;
             padding: 12px 25px;
@@ -59,27 +67,40 @@
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
-        .upload-button:hover {
+        .upload-btn:hover, .predict-btn:hover, .capture-btn:hover, .logout-btn:hover {
             background-color: #3d8b40;
         }
-        .description {
-            margin-top: 20px;
-            font-size: 1.1em;
-            line-height: 1.6;
+
+        /* Preview Image Styling */
+        .preview img {
+            max-width: 100%;
+            border-radius: 5px;
+            margin-top: 10px;
         }
+
+        /* Result Display Styling */
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+            background: red;
+            padding: 10px;
+            border-radius: 5px;
+            display: none;
+        }
+
+        /* Footer Styling */
         .footer {
             margin-top: 30px;
             font-size: 0.9em;
             color: #bbe1fa;
         }
+
+        /* Media Query for Responsiveness */
         @media only screen and (max-width: 600px) {
-            h1 {
-                font-size: 2em;
-            }
             h2 {
-                font-size: 1.2em;
+                font-size: 1.5em;
             }
-            .upload-button {
+            .upload-btn, .predict-btn, .capture-btn, .logout-btn {
                 font-size: 0.9em;
                 padding: 10px 20px;
             }
@@ -88,22 +109,99 @@
 </head>
 <body>
     <div class="container">
+        <!-- Logo Section -->
         <div class="logo">
             <img src="Adobe Express - file.png" alt="AgriLens Logo"> <!-- Replace with your logo URL -->
         </div>
-        <h1>AgriLens</h1>
-        <h2>Upload your image for instant analysis</h2>
+
+        <!-- Main Content -->
+        <h2>Upload or Capture an Image for Prediction</h2>
+
+        <!-- Upload Box -->
         <div class="upload-box">
-            <input type="file" id="file-upload" style="display: none;">
-            <label for="file-upload" class="upload-button">Choose File</label>
+            <input type="file" id="imageInput" accept="image/*">
             <p>Supports JPEG, JPG, PNG</p>
         </div>
-        <div class="description">
-            Revolutionize your agriculture practices. With AgriLens, gain insights that help monitor crop health, predict outcomes, and enhance your harvest for a sustainable future. Tap into technology designed to make every field flourish!
+
+        <!-- Camera Box -->
+        <div class="camera-box">
+            <button onclick="startCamera()">Open Camera</button>
+            <button onclick="captureImage()" class="capture-btn">Capture</button>
+            <video id="video" width="300" height="225" autoplay style="display: none;"></video>
+            <canvas id="canvas" width="300" height="225" style="display: none;"></canvas>
         </div>
+
+        <!-- Prediction Result -->
+        <p id="predictionResult"></p>
+
+        <!-- Predict Button Moved Above Logout -->
+        <button onclick="predictImage()" class="predict-btn">Predict</button>
+
+        <!-- Logout Button -->
+        <button class="logout-btn" onclick="logout()">Logout</button>
+
+        <!-- Footer -->
         <div class="footer">
             © 2025 AgriLens Inc. All rights reserved.
         </div>
     </div>
+
+    <script>
+        function predictImage() {
+            let fileInput = document.getElementById('imageInput');
+            let canvas = document.getElementById('canvas');
+            let formData = new FormData();
+
+            if (fileInput.files.length) {
+                formData.append('file', fileInput.files[0]);
+            } else {
+                canvas.toBlob(blob => {
+                    formData.append('file', blob, 'captured_image.png');
+                    sendPrediction(formData);
+                });
+                return;
+            }
+            sendPrediction(formData);
+        }
+
+        function sendPrediction(formData) {
+            fetch('http://10.12.11.23:5000/predict/', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('predictionResult').innerText = "Prediction: " + data.prediction;
+            })
+            .catch(error => {
+                document.getElementById('predictionResult').innerText = "Error in response!";
+                console.error('Error:', error);
+            });
+        }
+
+        function startCamera() {
+            let video = document.getElementById('video');
+            let constraints = { video: true };
+            navigator.mediaDevices.getUserMedia(constraints)
+                .then(stream => {
+                    video.style.display = 'block';
+                    video.srcObject = stream;
+                })
+                .catch(error => console.error('Error accessing camera:', error));
+        }
+
+        function captureImage() {
+            let video = document.getElementById('video');
+            let canvas = document.getElementById('canvas');
+            let context = canvas.getContext('2d');
+
+            canvas.style.display = 'block';
+            context.drawImage(video, 0, 0, canvas.width, canvas.height);
+        }
+
+        function logout() {
+            window.location.href = 'login.html'; // Redirect to login page
+        }
+    </script>
 </body>
 </html>
